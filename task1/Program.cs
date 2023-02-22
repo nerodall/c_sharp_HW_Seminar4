@@ -20,13 +20,23 @@ int InputInt(string message)
     return 0;
 }
 
+bool Validation(int value1, int value2)
+{
+    if (value1 >= 1 && value2 >= 0)
+    {
+        return true;
+    }
+    return false;
+}
+
+
 int Power(int value1, int value2)
 {
     int result = value1;
 
     for (int i = 1; i < value2; i++)
     {
-        result = result  * value1;
+        result = result * value1;
     }
     return result;
 
@@ -34,6 +44,13 @@ int Power(int value1, int value2)
 
 int value1 = InputInt("Введите первое число -> ");
 int value2 = InputInt("Введите второе число -> ");
-
-int result = Power(value1,value2);
-System.Console.WriteLine($"{value1} в степени {value2} = {result}");
+int result = 0;
+if (Validation(value1, value2))
+{
+    result = Power(value1, value2);
+    System.Console.WriteLine($"{value1} в степени {value2} = {result}");
+}
+else
+{
+    System.Console.WriteLine("Введите число больше нуля");
+}
